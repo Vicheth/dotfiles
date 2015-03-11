@@ -35,8 +35,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'kien/ctrlp.vim'
 " lean & mean status/tabline for vim that's light as air
 Plugin 'bling/vim-airline'
-" Perform all your vim insert mode completions with Tab
-Plugin 'ervandew/supertab'
 " Syntax checking hacks for vim
 Plugin 'scrooloose/syntastic'
 " Vim plugin that displays tags in a window, ordered by scope
@@ -51,10 +49,26 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 " vim-snipmate default snippets (Previously snipmate-snippets)
 Plugin 'honza/vim-snippets'
-" Vim plugin for the Perl module / CLI script 'ack'
-Plugin 'mileszs/ack.vim'
 " Vim plugin for intensely orgasmic commenting
 Plugin 'scrooloose/nerdcommenter'
+" This project adds CoffeeScript support to vim. It covers syntax, indenting, compiling, and more.
+Plugin 'kchmck/vim-coffee-script'
+" True Sublime Text style multiple selections for Vim
+Plugin 'terryma/vim-multiple-cursors'
+" endwise.vim: wisely add "end" in ruby, endfunction/endif/more in vim script, etc
+Plugin 'tpope/vim-endwise'
+" Highlights trailing whitespace in red and provides :FixWhitespace to fix it.
+Plugin 'bronson/vim-trailing-whitespace'
+" HTML5 omnicomplete and syntax
+Plugin 'othree/html5.vim'
+" Vim runtime files for Haml, Sass, and SCSS
+Plugin 'tpope/vim-haml'
+" Vim's MatchParen for HTML tags
+Plugin 'gregsexton/MatchTag'
+" Vastly improved Javascript indentation and syntax support in Vim.
+Plugin 'pangloss/vim-javascript'
+" Perform all your vim insert mode completions with Tab
+Plugin 'ervandew/supertab'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -74,26 +88,31 @@ filetype plugin indent on    " required
 " General
 set gdefault " Global as default
 set backspace=indent,eol,start " Make backspace acts as it should act
-"set mouse=a " Enable mouse support in console
+set mouse=a " Enable mouse support in console
 set wildmenu " Enable tab completion
 set wildignore=*.swp,*.class,*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " Ignore compiled files
 set pastetoggle=<F2> " Toggle between paste mode
 set nobackup " No backup files
 set noswapfile " No swap files
+set hidden " A buffer becomes hidden when it is abandoned
+set encoding=utf-8
 
 " Look and Feel
+" set term=screen-256color " Display the right color with tmux
+set t_Co=256 " Use 256 colours
 set title " Change the terminal's title
 syntax on " Enable syntax highlighting
+set background=dark " It doesn't hurt eyes
 colorscheme molokai " Molokai Colorscheme
 set showcmd " Show (partial) command in the last line of the screen
 set ruler " Show current cursor position on status bar
 set number " Show line number
-"set cursorline " Show cursor line
-"set cursorcolumn " Show cursor column
+" set cursorline " Show cursor line
+" set cursorcolumn " Show cursor column
 set scrolloff=5 " Set 5 lines to the cursor - when moving vertically using j/k
 set laststatus=2 " Always show status line
 set hlsearch " Highlight search results
-"set linebreak " Wraps between words
+" set linebreak " Wraps between words
 set list " Enable list mode
 set lcs=eol:¬
 
@@ -149,8 +168,6 @@ inoremap jj <esc>
 " The F8 key will toggle the Tagbar window
 nmap <F8> :TagbarToggle<CR>
 
-
-
 " Abbreviations
 cnoreabbrev W w
 cnoreabbrev Wq wq
@@ -158,8 +175,15 @@ cnoreabbrev WQ wq
 cnoreabbrev Q! q!
 cnoreabbrev Tabe tabe
 
-
 " Autocommands
+augroup General
+    autocmd!
+    autocmd BufWritePost * FixWhitespace
+augroup END
+augroup HTML
+    autocmd!
+    autocmd FileType html setlocal shiftwidth=2 softtabstop=2 tabstop=2
+augroup END
 augroup vimscript
     autocmd!
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
@@ -168,5 +192,15 @@ augroup Ruby
     autocmd!
     autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 tabstop=2
     autocmd FileType eruby setlocal shiftwidth=2 softtabstop=2 tabstop=2
+augroup END
+augroup CSS
+    autocmd!
+    autocmd FileType css setlocal shiftwidth=2 softtabstop=2 tabstop=2
+    autocmd FileType scss setlocal shiftwidth=2 softtabstop=2 tabstop=2
+augroup END
+augroup JavaScript
+    autocmd!
+    autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2
+    autocmd FileType coffee setlocal shiftwidth=2 softtabstop=2 tabstop=2
 augroup END
 
