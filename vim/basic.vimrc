@@ -21,8 +21,8 @@ Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
 Plugin 'ervandew/supertab'
 
-call vundle#end()           
-filetype plugin indent on   
+call vundle#end()
+filetype plugin indent on
 
 set regexpengine=1
 set gdefault
@@ -68,7 +68,8 @@ set foldmethod=indent
 set foldlevelstart=10
 set foldnestmax=10
 
-let mapleader
+let mapleader=','
+
 inoremap <C-s> <esc>:w<CR>
 nnoremap <C-s> :w<CR>
 vnoremap <C-s> <esc>:w<CR>
