@@ -1,0 +1,70 @@
+{
+	"auto_complete_commit_on_tab": true,
+	"caret_extra_bottom": 3,
+	"caret_extra_top": 3,
+	"caret_extra_width": 2,
+	"caret_style": "phase",
+	"draw_indent_guides": false,
+	"draw_minimap_border": true,
+	"draw_white_space": "all",
+	"enable_tab_scrolling": false,
+	"ensure_newline_at_eof_on_save": true,
+	"file_exclude_patterns":
+	[
+		"*.pyc",
+		"*.pyo",
+		"*.exe",
+		"*.dll",
+		"*.obj",
+		"*.o",
+		"*.a",
+		"*.lib",
+		"*.so",
+		"*.dylib",
+		"*.ncb",
+		"*.sdf",
+		"*.suo",
+		"*.pdb",
+		"*.idb",
+		"*.class",
+		"*.psd",
+		"*.db",
+		"*.beam",
+		".DS_Store",
+		".tags"
+	],
+	"findreplace_small": true,
+	"folder_exclude_patterns":
+	[
+		".svn",
+		".git",
+		".hg",
+		"CVS",
+		".sass-cache"
+	],
+	"font_face": "Monaco",
+	"font_options":
+	[
+		"no_round"
+	],
+	"font_size": 17,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+	],
+	"overlay_scroll_bars": "enabled",
+	"rulers":
+	[
+		80,
+		120
+	],
+	"sidebar_small": true,
+	"tab_size": 2,
+	"tabs_small": true,
+	"theme": "Adaptive.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"wide_caret": true,
+	"word_separators": "./\\()\"'-:,.;<>~@#$%^&*|+=[]{}`~"
+}
